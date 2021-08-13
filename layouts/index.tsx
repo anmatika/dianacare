@@ -7,7 +7,7 @@ const DefaultLayout = ({ children }: any) => (
       <title>Diana care</title>
     </Head>
     <Navbar />
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto">
       <main> {children} </main>
     </div>
   </>
