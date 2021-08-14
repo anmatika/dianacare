@@ -1,11 +1,9 @@
 function About() {
   return <article className="prose" >
-    <h1>About</h1>
+    <h1>Arvomme</h1>
     <p>
-      Foo bar
     </p>
     <p>
-      Zoo
     </p>
   </article >
 }

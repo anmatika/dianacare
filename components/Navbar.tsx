@@ -6,10 +6,18 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'About', href: '/about', current: false },
-  { name: 'HelloWorld', href: '/blog/hello-world', current: false },
+  { name: 'Koti', href: '/', current: true },
+  { name: 'Arvomme', href: '/ourvalues', current: false },
+  { name: 'Ota yhteyttä', href: '/contact', current: false },
 ]
+
+const content = {
+  companyLogo: {
+    src: '/images/dianacare-logo.png'
+  }
+}
+
+
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
@@ -44,8 +52,9 @@ export default function Example() {
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
+                    // src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                    src={content.companyLogo.src}
+                    alt="dianacare"
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6">

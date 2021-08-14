@@ -1,16 +1,24 @@
 import Navbar from "../components/Navbar";
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-const DefaultLayout = ({ children }: any) => (
-  <>
+import Hero from '../components/Hero'
+
+const DefaultLayout = ({ children }: any) => {
+  const router = useRouter();
+
+  return <>
     <Head>
-      <title>Diana care</title>
+      <title>dianacare</title>
     </Head>
     <Navbar />
+
+    {router.pathname === '/' && <Hero />}
+
     <div className="container mx-auto">
       <main> {children} </main>
     </div>
   </>
-);
+};
 
 export default DefaultLayout;
