@@ -9,7 +9,7 @@ const content = {
 
 export default function Hero() {
   return <div className="bg-gray-200 ">
-    <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 ">
+    <div className="container px-6 py-2 mx-auto lg:flex lg:h-128 lg:py-8 ">
       <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
         <div className="max-w-lg">
           <h1 className="text-xl tracking-wide text-white text-gray-800 lg:text-3xl lg:text-4xl">{content.title} </h1>

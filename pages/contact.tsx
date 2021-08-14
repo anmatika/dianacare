@@ -1,6 +1,12 @@
 
 function Contact() {
-  return <div> Ota yhteyttä</div>
+  return <article className="prose" >
+    <h1>Ota yhteyttä</h1>
+    <p>
+    </p>
+    <p>
+    </p>
+  </article>
 }
 
 export default Contact;
