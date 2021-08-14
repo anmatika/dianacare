@@ -1,14 +1,16 @@
 
 import Link from 'next/link'
+import Image from 'next/image'
+
 const content = {
   title: 'dianacare',
   heroText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.',
-  imageSrc: '/images/dianacare-hero.png',
+  imageSrc: '/images/dianacare-hero2.png',
   readMoreSrc: '/ourvalues'
 }
 
 export default function Hero() {
-  return <div className="bg-gray-200 ">
+  return <div className="bg-indigo-50 ">
     <div className="container px-6 py-2 mx-auto lg:flex lg:h-128 lg:py-8 ">
       <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
         <div className="max-w-lg">
@@ -26,8 +28,10 @@ export default function Hero() {
         </div>
       </div>
       <div className="flex items-center justify-center w-full mt-2 lg:h-full lg:w-1/2">
-        <img className="object-cover w-full max-w-2xl rounded-md lg:h-1/2"
+        <Image className="object-cover w-full max-w-2xl lg:h-1/2"
           src={content.imageSrc}
+          width={640}
+          height={427}
           alt="hero" />
       </div>
     </div>

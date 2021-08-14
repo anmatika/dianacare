@@ -18,12 +18,7 @@ function Home(props: any) {
 
       <article className="prose">
         <h1>Diana cares</h1>
-        <p>
-          Välitämme läheisistänne
-        </p>
-        <p>
 
-        </p>
       </article>
     </>
   )
