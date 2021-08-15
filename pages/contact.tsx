@@ -1,5 +1,5 @@
 
-import { client, api } from "../prismic-configuration"
+import { client } from "../prismic-configuration"
 
 function Contact({ data }: any) {
   return <article className="prose" >

@@ -1,12 +1,7 @@
 import Image from 'next/image'
-import { client, api } from "../prismic-configuration"
-
-
-console.log('client', client)
-
+import { client } from "../prismic-configuration"
 
 function Home(props: any) {
-  console.log('props', props)
   const { data } = props
 
   return (
