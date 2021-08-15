@@ -17,8 +17,6 @@ const content = {
   }
 }
 
-
-
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
@@ -45,16 +43,26 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block h-8 w-auto"
-                    src="/images/rose.png"
-                    alt="logo"
-                  />
-                  <img
-                    className="lg:block h-8 w-auto"
-                    src={content.companyLogo.src}
-                    alt="dianacare"
-                  />
+                  <Link
+                    href="/">
+                    <a>
+                      <img
+                        className="block h-8 w-auto"
+                        src="/images/rose.png"
+                        alt="logo"
+                      />
+                    </a>
+                  </Link>
+                  <Link
+                    href="/">
+                    <a>
+                      <img
+                        className="lg:block h-8 w-auto"
+                        src={content.companyLogo.src}
+                        alt="dianacare"
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
