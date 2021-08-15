@@ -18,8 +18,7 @@
 /* Footer links */
 
 .footer-distributed p.footer-links {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
   color: #ffffff;
   margin: 0 0 10px;
   padding: 0;
@@ -35,7 +34,6 @@
 }
 
 .footer-distributed .footer-links a:before {
-  content: "·";
   font-size: 20px;
   left: 0;
   color: #fff;
