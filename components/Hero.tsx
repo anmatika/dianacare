@@ -11,7 +11,7 @@ const content = {
 export default function Hero() {
   return (
     <div className="hero">
-      <div className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+      <div className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 lg:ml-8 md:ml-8 sm:ml-8 ml-0">
         <div className="flex justify-center md:justify-end -mt-16">
           <img className="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="/images/elderly.jpg" />
         </div>
