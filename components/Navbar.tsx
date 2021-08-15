@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 const navigation = [
   { name: 'Koti', href: '/', current: true },
-  { name: 'Arvomme', href: '/ourvalues', current: false },
+  { name: 'Meistä', href: '/ourvalues', current: false },
   { name: 'Ota yhteyttä', href: '/contact', current: false },
 ]
 
