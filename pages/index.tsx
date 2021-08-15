@@ -13,11 +13,13 @@ console.log('client', client)
 
 function Home(props: any) {
   console.log('props', props)
+  const { data } = props
+
   return (
     <>
 
       <article className="prose">
-        <h1>Diana cares</h1>
+        <h1>{data.title[0].text}</h1>
 
       </article>
     </>
@@ -27,18 +29,11 @@ function Home(props: any) {
 export default Home
 
 export async function getStaticProps() {
-  // query() is empty on purpose!
-  // https://prismic.io/docs/rest-api/query-the-api/query-all-documents
-  const res = await client.query('')
-
-  const tabs = res.results.map((p) => {
-    console.log('p', p)
-    return p.data
-  })
+  const res = await client.getSingle('home', {})
 
   return {
     props: {
-      tabs,
+      data: res.data
     },
   }
 }
