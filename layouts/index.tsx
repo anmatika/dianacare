@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Footer from '../components/Footer'
 
 import Hero from '../components/Hero'
+import HeroAbout from "../components/HeroAbout";
 
 const DefaultLayout = ({ children }: any) => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const DefaultLayout = ({ children }: any) => {
     <Navbar />
 
     {router.pathname === '/' && <Hero />}
+    {router.pathname === '/ourvalues' && <HeroAbout />}
 
     <div className="container mx-auto">
       <main> {children} </main>
