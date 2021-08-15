@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const content = {
   title: 'dianacare',
-  heroText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.',
+  heroText: 'Hoivakodeissamme eletään hyvää ja turvallista elämää, jossa arki ja juhlat kuuluvat kaikille.',
   imageSrc: '/images/dianacare-hero2.png',
   readMoreSrc: '/ourvalues'
 }
@@ -17,7 +17,7 @@ export default function Hero() {
         </div>
         <div>
           <h2 className="text-gray-800 text-3xl font-semibold">Meistä</h2>
-          <p className="mt-2 text-gray-600">Hoivakodeissamme eletään hyvää ja turvallista elämää, jossa arki ja juhlat kuuluvat kaikille.</p>
+          <p className="mt-2 text-gray-600">{content.heroText}</p>
         </div>
         <div className="flex justify-end mt-4">
           <Link
@@ -29,8 +29,6 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-
-
     </div>
   )
 
