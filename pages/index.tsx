@@ -1,12 +1,6 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
 import Image from 'next/image'
-import Prismic from "prismic-javascript"
 import { client, api } from "../prismic-configuration"
-import { RichText } from "prismic-reactjs";
-import DefaultLayout from '../layouts/index'
-import { linkResolver } from '../helpers';
+
 
 console.log('client', client)
 
@@ -17,10 +11,9 @@ function Home(props: any) {
 
   return (
     <>
-
       <article className="prose">
         <h1>{data.title[0].text}</h1>
-
+        <Image src="/images/elderly.jpg" width={960} height={640} alt="elderly" />
       </article>
     </>
   )
