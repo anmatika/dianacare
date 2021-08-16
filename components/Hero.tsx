@@ -16,7 +16,7 @@ export default function Hero() {
           <img className="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="/images/elderly.jpg" />
         </div>
         <div>
-          <h2 className="text-gray-800 text-3xl font-semibold">Meistä</h2>
+          <h2 className="text-gray-800 text-3xl font-semibold">Palvelulupauksemme</h2>
           <p className="mt-2 text-gray-600">{content.heroText}</p>
         </div>
         <div className="flex justify-end mt-4">
