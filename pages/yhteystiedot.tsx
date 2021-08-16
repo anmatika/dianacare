@@ -1,7 +1,6 @@
 
 import { client } from "../prismic-configuration"
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
-import { mapsKey } from '../maps.configuration'
 
 const containerStyle = {
   position: 'relative',
@@ -10,6 +9,7 @@ const containerStyle = {
 }
 
 function Contact(props: any) {
+
   return (
     <>
       <div className="prose p-8"><h1>Löydät meidät täältä</h1>
@@ -23,6 +23,10 @@ function Contact(props: any) {
         <div>
           <i className="fas fa-phone-square mr-1"></i>
           +358 1234567
+        </div>
+        <div>
+          <i className="fa fa-envelope mr-1" aria-hidden="true"></i>
+          <a href="mailto: diana@dianacare.com">info@dianacare.com</a>
         </div>
 
       </div>
@@ -41,10 +45,9 @@ function Contact(props: any) {
     </>
   )
 }
-console.log('google api key', mapsKey)
 
 export default GoogleApiWrapper({
-  apiKey: (mapsKey || '')
+  apiKey: (process.env.NEXT_PUBLIC_GOOGLE_API_KEY || '')
 })(Contact);
 
 export async function getStaticProps() {
