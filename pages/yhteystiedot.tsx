@@ -22,7 +22,7 @@ function Contact(props: any) {
         </div>
         <div>
           <i className="fas fa-phone-square mr-1"></i>
-          +358 123456
+          +358 1234567
         </div>
 
       </div>
