@@ -13,7 +13,7 @@ export default function Footer() {
           {/* <Link href="/faq">
             <a>Usein kysytyt kysymykset</a>
           </Link> */}
-          <Link href="/contact">
+          <Link href="/yhteystiedot">
             <a>Yhteystiedot</a>
           </Link>
         </p>

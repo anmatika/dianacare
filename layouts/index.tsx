@@ -16,7 +16,7 @@ const DefaultLayout = ({ children }: any) => {
     <Navbar />
 
     {router.pathname === '/' && <Hero />}
-    {router.pathname === '/ourvalues' && <HeroAbout />}
+    {router.pathname === '/tietoja-meista' && <HeroAbout />}
 
     <div className="container mx-auto">
       <main> {children} </main>
