@@ -4,8 +4,15 @@ export default function MapInfoWindow(props: any) {
   const mailtoText = `mailto: ${email}`
 
   return <div className="prose-xs">
-    <h1>sandihoiva</h1>
-    <p className="p-2">
+    <div className="flex items-center">
+      <img
+        className="block h-7 w-auto mr-1"
+        src="/images/rose.png"
+        alt="logo"
+      />
+      <h1>sandihoiva</h1>
+    </div>
+    <p className="p-3">
       <div >
         <i className="fas fa-map-marker-alt mr-1"></i>
         {address}
@@ -19,6 +26,6 @@ export default function MapInfoWindow(props: any) {
         <a href={mailtoText}>{email}</a>
       </div>
     </p>
-  </div>
+  </div >
 
 }
