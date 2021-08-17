@@ -1,7 +1,6 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import image from 'next/image'
+import { Disclosure } from '@headlessui/react'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -13,7 +12,7 @@ const navigation = [
 
 const content = {
   companyLogo: {
-    src: '/images/sandihoiva.png'
+    src: '/images/logo.png'
   }
 }
 
@@ -60,7 +59,7 @@ export default function Example() {
                       <img
                         className="lg:block h-8 w-auto"
                         src={content.companyLogo.src}
-                        alt="dianacare"
+                        alt="sandihoiva"
                       />
                     </a>
                   </Link>

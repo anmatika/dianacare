@@ -44,8 +44,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        'hero-home': "url('/images/dianacare-hero2.png')",
-        'hero-about': "url('/images/woman.jpg')",
+        'hero-home': "url('/images/hero-koti.png')",
+        'hero-about': "url('/images/hero-tietoameista.jpg')",
       })
     }
   },
