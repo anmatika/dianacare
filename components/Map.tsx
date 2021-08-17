@@ -28,6 +28,40 @@ export default function Map(props: any) {
     lng: 23.77645
   }
 
+  const mapStyles = [
+    {
+      stylers: [
+        {
+          hue: '#2c3e50',
+        },
+        {
+          saturation: 250,
+        },
+      ],
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry',
+      stylers: [
+        {
+          lightness: 50,
+        },
+        {
+          visibility: 'simplified',
+        },
+      ],
+    },
+    {
+      featureType: 'road',
+      elementType: 'labels',
+      stylers: [
+        {
+          visibility: 'off',
+        },
+      ],
+    },
+  ];
+
   return <LoadScript
     googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY || ''}
   >
@@ -35,6 +69,9 @@ export default function Map(props: any) {
       mapContainerStyle={containerStyle}
       center={center}
       zoom={15}
+      options={
+        mapStyles
+      }
     >
       {isVisibleInfoWindow && <InfoWindow
         position={InfoWindowPosition}

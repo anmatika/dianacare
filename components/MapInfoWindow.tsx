@@ -12,7 +12,7 @@ export default function MapInfoWindow(props: any) {
       />
       <h1>sandihoiva</h1>
     </div>
-    <p className="p-3">
+    <div className="p-3">
       <div >
         <i className="fas fa-map-marker-alt mr-1"></i>
         {address}
@@ -25,7 +25,7 @@ export default function MapInfoWindow(props: any) {
         <i className="fa fa-envelope mr-1" aria-hidden="true"></i>
         <a href={mailtoText}>{email}</a>
       </div>
-    </p>
+    </div>
   </div >
 
 }
