@@ -10,22 +10,22 @@ export default function Map(props: any) {
 
   const containerStyle = {
     width: '100%',
-    height: '420px'
+    height: '450px'
   };
 
   const center = {
     lat: 61.49911,
-    lng: 23.78712
+    lng: 23.77645
   };
 
   const markerPosition = {
-    lat: 61.49911,
-    lng: 23.78712
+    lat: 61.4990043,
+    lng: 23.77645
   }
 
   const InfoWindowPosition = {
     lat: 61.49999,
-    lng: 23.78712
+    lng: 23.77645
   }
 
   return <LoadScript
