@@ -1,10 +1,9 @@
 
 import { client } from "../prismic-configuration"
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
+import Map from "../components/Map";
 
-function Contact(props: any) {
+export default function Contact(props: any) {
   const { data } = props;
-
   const mailto = `mailto: ${data.email}`
 
   return (
@@ -31,29 +30,12 @@ function Contact(props: any) {
 
       </div>
       <div className="p-8">
-        <Map
-          google={props.google}
-          containerStyle={{
-            position: 'relative',
-            width: '100%',
-            height: '400px'
-          }}
-          initialCenter={{
-            lat: 61.49911,
-            lng: 23.78712
-          }}
-        >
-          <Marker
-          />
-        </Map>
+        <Map data={data} />
       </div>
     </>
   )
 }
 
-export default GoogleApiWrapper({
-  apiKey: (process.env.NEXT_PUBLIC_GOOGLE_API_KEY || '')
-})(Contact);
 
 export async function getStaticProps() {
   const res = await client.getSingle('yhteystiedot', {})

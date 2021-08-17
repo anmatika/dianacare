@@ -29,6 +29,15 @@ module.exports = {
     },
     extend: {
       typography: {
+        'xs': {
+          css: {
+            fontSize: '0.7rem',
+            h1: {
+              fontSize: '1.3rem',
+            },
+          },
+
+        },
         DEFAULT: {
           css: {
             color: '#333',
@@ -40,14 +49,12 @@ module.exports = {
             },
           },
         },
-      }
-    },
-    extend: {
+      },
       backgroundImage: theme => ({
         'hero-home': "url('/images/hero-koti.png')",
         'hero-about': "url('/images/hero-tietoameista.jpg')",
       })
-    }
+    },
   },
   variants: {
     extend: {},
