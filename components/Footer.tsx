@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="footer-distributed">
+    <footer id="footer" className="footer-distributed">
       <div className="footer-right">
         <a href="#"><i className="fab fa-facebook-square"></i></a>
         <a href="#"><i className="fab fa-instagram-square"></i></a>
