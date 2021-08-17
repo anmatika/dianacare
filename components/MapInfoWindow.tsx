@@ -6,7 +6,7 @@ export default function MapInfoWindow(props: any) {
   return <div className="prose-xs">
     <div className="flex items-center">
       <img
-        className="block h-7 w-auto mr-1"
+        className="block h-7 w-auto mr-1 hidden sm:block"
         src="/images/rose.png"
         alt="logo"
       />
