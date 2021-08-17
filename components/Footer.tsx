@@ -10,15 +10,12 @@ export default function Footer() {
 
       <div className="footer-left">
         <p className="footer-links">
-          {/* <Link href="/faq">
-            <a>Usein kysytyt kysymykset</a>
-          </Link> */}
           <Link href="/yhteystiedot">
             <a>Yhteystiedot</a>
           </Link>
         </p>
 
-        <p>dianacare &copy; 2021</p>
+        <p>sandihoiva &copy; 2021</p>
       </div>
     </footer>
   )

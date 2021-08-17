@@ -13,7 +13,7 @@ const navigation = [
 
 const content = {
   companyLogo: {
-    src: '/images/dianacare-logo.png'
+    src: '/images/sandihoiva.png'
   }
 }
 
@@ -44,10 +44,11 @@ export default function Example() {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <Link
-                    href="/">
+                    href="/"
+                  >
                     <a>
                       <img
-                        className="block h-8 w-auto"
+                        className="block h-8 w-auto mr-1"
                         src="/images/rose.png"
                         alt="logo"
                       />

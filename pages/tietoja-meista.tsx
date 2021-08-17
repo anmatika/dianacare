@@ -1,10 +1,32 @@
-function About() {
-  return <article className="prose p-8" >
-    <h1>Tietoa meistä</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </article >
+
+import { client } from "../prismic-configuration"
+import HeroAbout from "../components/HeroAbout";
+
+function About(props: any) {
+  const { data } = props;
+
+  return <>
+    <HeroAbout />
+
+    <div className="container">
+      <article className="prose p-8" >
+        <h1>{data['title']}</h1>
+        <p>
+          {data['text']}
+        </p>
+      </article >
+    </div>
+  </>
 }
 
 export default About;
+
+export async function getStaticProps() {
+  const res = await client.getSingle('tietoameista', {})
+
+  return {
+    props: {
+      data: res.data
+    },
+  }
+}

@@ -42,6 +42,12 @@ module.exports = {
         },
       }
     },
+    extend: {
+      backgroundImage: theme => ({
+        'hero-home': "url('/images/dianacare-hero2.png')",
+        'hero-about': "url('/images/woman.jpg')",
+      })
+    }
   },
   variants: {
     extend: {},
