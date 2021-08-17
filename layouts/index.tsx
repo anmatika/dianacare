@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import Head from 'next/head'
 import Footer from '../components/Footer'
 
-const DefaultLayout = ({ data, children }: any) => {
+const DefaultLayout = ({ children }: any) => {
 
   return <div className="m-0 flex flex-col min-h-screen">
     <Head>
