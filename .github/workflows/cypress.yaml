@@ -1,4 +1,4 @@
-name: Run Cypress
+name: Cypress with local server
 on: [push]
 jobs:
   cypress-run:
@@ -9,22 +9,11 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          browser: chrome
-          headless: true
-          config-file: cypress.local.json
           start: yarn dev
-        env:
-          PRISMIC_URL: ${{ secrets.PRISMIC_URL }}
-          PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-        # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+          wait-on: 'http://localhost:3000'
+          env:
+            PRISMIC_URL: ${{ secrets.PRISMIC_URL }}
+            PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
+
+
 
