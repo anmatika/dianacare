@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 const content = {
-  readMoreSrc: '/tietoa-meista'
+  readMoreSrc: '/tietoa_meista'
 }
 
 export default function HeroHome(props: any) {

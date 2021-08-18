@@ -1,6 +1,6 @@
 describe('Yhteystiedot route', () => {
   beforeEach(() => {
-    cy.visit('https://dianacare.netlify.app/yhteystiedot')
+    cy.visit(`${Cypress.config('baseUrl')}/yhteystiedot`)
   })
 
   it('shows title', () => {

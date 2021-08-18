@@ -1,6 +1,6 @@
 describe('navigation', () => {
   beforeEach(() => {
-    cy.visit('https://dianacare.netlify.app')
+    cy.visit(Cypress.config('baseUrl'))
   })
 
   it('Has navigation links', () => {
@@ -26,7 +26,7 @@ describe('navigation', () => {
     cy.get('#navigation')
       .contains('Tietoa meistä').click()
     cy.location().should((loc) => {
-      expect(loc.pathname).to.eq('/tietoa-meista')
+      expect(loc.pathname).to.eq('/tietoa_meista')
     })
 
     cy.contains('Tietoa meistä')
