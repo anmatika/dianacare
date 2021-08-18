@@ -13,6 +13,9 @@ jobs:
           headless: true
           config-file: cypress.local.json
           start: yarn dev
+        env:
+          PRISMIC_URL: ${{ secrets.PRISMIC_URL }}
+          PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
