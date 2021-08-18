@@ -1,13 +1,13 @@
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const navigation = [
-  { name: 'Koti', href: '/', current: true },
-  { name: 'Tietoa meistä', href: '/tietoa-meista', current: false },
-  { name: 'Ota yhteyttä', href: '/yhteystiedot', current: false },
+  { name: 'Koti', href: '/', isVisible: true },
+  { name: 'Tietoa meistä', href: '/tietoa_meista', current: false, isVisible: true },
+  { name: 'Ota yhteyttä', href: '/yhteystiedot', current: false, isVisible: true },
+  { name: 'Varaa aika', href: '/varaa_aika', current: false, isVisible: process.env.NODE_ENV === 'development' },
 ]
 
 const content = {
@@ -15,6 +15,8 @@ const content = {
     src: '/images/logo.png'
   }
 }
+
+console.log('process.env', process.env.NODE_ENV)
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
@@ -66,7 +68,7 @@ export default function Example() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {navigation.filter(item => item.isVisible).map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}

@@ -1,6 +1,6 @@
 describe('Footer', () => {
   beforeEach(() => {
-    cy.visit('https://dianacare.netlify.app')
+    cy.visit(Cypress.config('baseUrl'))
   })
 
   it('shows yhteystiedot', () => {

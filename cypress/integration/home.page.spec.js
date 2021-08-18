@@ -1,6 +1,6 @@
 describe('koti', () => {
   beforeEach(() => {
-    cy.visit('https://dianacare.netlify.app')
+    cy.visit(Cypress.config('baseUrl'))
   })
 
   it('shows title', () => {
@@ -11,7 +11,7 @@ describe('koti', () => {
   it('Button click correct route, Lue lisaa', () => {
     cy.contains('Lue lisää').click()
     cy.location().should((loc) => {
-      expect(loc.pathname).to.eq('/tietoa-meista')
+      expect(loc.pathname).to.eq('/tietoa_meista')
     })
 
     cy.contains('Tietoa meistä')
