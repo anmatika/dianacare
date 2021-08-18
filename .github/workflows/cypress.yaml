@@ -11,9 +11,9 @@ jobs:
         with:
           start: yarn dev
           wait-on: 'http://localhost:3000'
-          env:
-            PRISMIC_URL: ${{ secrets.PRISMIC_URL }}
-            PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
+        env:
+          PRISMIC_URL: ${{ secrets.PRISMIC_URL }}
+          PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
 
 
 
