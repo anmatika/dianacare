@@ -7,8 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "node_modules/.bin/cypress open --config-file cypress.local.json",
-    "cypress:run": "node_modules/.bin/cypress run --config-file cypress.local.json"
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
@@ -35,6 +37,7 @@
     "cypress": "^8.3.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "start-server-and-test": "^1.13.1",
     "typescript": "4.3.5"
   }
 }
