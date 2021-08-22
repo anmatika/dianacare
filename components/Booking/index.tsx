@@ -9,14 +9,17 @@ export const Booking = (props: any) => {
   const { appointments } = props
   const [openedDayView, setOpenedDayView] = useState(null)
   const store = Store.create({
-    selectedDate: null
+    selectedDate: null,
+    selectedTime: null
   })
 
   return (
     <Provider store={store}>
-      <BookingCalendar />
-      <BookingDayView />
-      <BookingForm appointments={appointments} />
+      <div className="grid grid-cols-2">
+        <BookingCalendar />
+        <BookingDayView />
+        <BookingForm appointments={appointments} />
+      </div>
     </Provider>
   )
 }

@@ -16,7 +16,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
   }, [])
 
   return (
-    <>
+    <div>
       <Calendar
         value={value}
         onClickDay={(value: Date) => {
@@ -24,7 +24,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
         }}
         locale="fi-FI"
       />
-    </>
+    </div>
   )
 }))
 

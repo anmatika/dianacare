@@ -12,6 +12,7 @@ export default function CalendarPage(props: any) {
   return (
     <div className="container">
       <div className="prose">
+        <h1>Varaa aika</h1>
         <Booking appointments={appointments} />
       </div>
     </div>

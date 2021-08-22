@@ -1,0 +1,18 @@
+name: Cypress with local server
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    env:
+      PRISMIC_URL: ${{ secrets.PRISMIC_URL }}
+      PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn e2e:headless
+
+
+

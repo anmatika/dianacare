@@ -1,13 +1,16 @@
 import React from "react";
+import { observer, inject } from 'mobx-react'
 import { useForm } from "react-hook-form";
 
-export default function BookingForm(props: any) {
-  const { appointments } = props
+const BookingForm = inject('store')(observer((props: any) => {
+  const { appointments, store } = props
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = (data: any) => console.log('submit', data);
 
   // console.log(watch()); // watch input value by passing the name of it
+
+  if (store.selectedDate == null) return <div />
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -19,5 +22,6 @@ export default function BookingForm(props: any) {
       <input type="submit" />
     </form>
   );
-}
+}))
 
+export default BookingForm
