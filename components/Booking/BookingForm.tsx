@@ -6,7 +6,10 @@ const BookingForm = inject('store')(observer((props: any) => {
   const { appointments, store } = props
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = (data: any) => console.log('submit', data);
+  const onSubmit = (data: any) => {
+    console.log('submit date', store.selectedDate, store.selectedTime)
+    console.log('submit user', data)
+  };
 
   // console.log(watch()); // watch input value by passing the name of it
 
