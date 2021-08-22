@@ -1,9 +1,14 @@
-export default function BookingDayView(props: any) {
-  const { date } = props;
+import { observer, inject } from 'mobx-react'
+
+const BookingDayView = inject('store')(observer((props: any) => {
+  const { store } = props;
   return (
     <div>
 
 
+      {JSON.stringify(store.selectedDate)}
     </div>
   )
-}
+}))
+
+export default BookingDayView

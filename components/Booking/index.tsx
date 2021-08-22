@@ -15,7 +15,7 @@ export const Booking = (props: any) => {
   return (
     <Provider store={store}>
       <BookingCalendar />
-      {openedDayView && <BookingDayView date={openedDayView} />}
+      <BookingDayView />
       <BookingForm appointments={appointments} />
     </Provider>
   )
