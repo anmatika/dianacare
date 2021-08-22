@@ -11,8 +11,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
 
   useEffect(() => {
     setValue([
-      new Date(2021, 7, 12),
-      new Date(2021, 7, 3)])
+      new Date(2021, 7, 12)])
   }, [])
 
   return (
