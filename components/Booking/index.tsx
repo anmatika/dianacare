@@ -9,7 +9,7 @@ export const Booking = (props: any) => {
   const { appointments } = props
   const [openedDayView, setOpenedDayView] = useState(null)
   const store = Store.create({
-    todoList: ["Buy milk"]
+    selectedDate: null
   })
 
   return (

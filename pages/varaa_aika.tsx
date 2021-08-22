@@ -19,8 +19,9 @@ export default function CalendarPage(props: any) {
 }
 export async function getStaticProps() {
 
-  const prisma = new PrismaClient({ log: ['query', 'info', 'warn'] });
-  const appointments = await prisma.appointment.findMany();
+  // const prisma = new PrismaClient({ log: ['query', 'info', 'warn'] });
+  // const appointments = await prisma.appointment.findMany();
+  const appointments: any = []
 
   return {
     props: {

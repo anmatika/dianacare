@@ -4,15 +4,19 @@ import { observer } from "mobx-react";
 
 const Store = types
   .model("Store", {
-    todoList: types.array(types.string)
+    bookings: types.array(types.Date),
+    selectedDate: types.maybeNull(types.Date)
   })
   .actions(self => {
     return {
-      addTodo(todo: any) {
-        self.todoList.push(todo);
+      selectDate(date: Date) {
+        self.selectedDate = date
       },
-      removeTodo(todo: any) {
-        self.todoList.remove(todo);
+      addTodo(booking: any) {
+        self.bookings.push(booking);
+      },
+      removeTodo(booking: any) {
+        self.bookings.remove(booking);
       }
     };
   });

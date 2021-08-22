@@ -17,12 +17,14 @@ const BookingCalendar = inject('store')(observer((props: any) => {
 
   return (
     <>
-      {store.todoList?.map((t, i) => <div key={i}> {t} </div>)}
+      {/* {store.todoList?.map((t, i) => <div key={i}> {t} </div>)} */}
+      {JSON.stringify(store.selectedDate)}
       <Calendar
         value={value}
         onClickDay={(value: Date) => {
           console.log('clicked date', value)
-          store.addTodo(value.toDateString())
+          // store.addTodo(value.toDateString())
+          store.selectDate(value)
         }}
         locale="fi-FI"
       />
