@@ -41,7 +41,9 @@ const BookingForm = inject('store')(observer((props: any) => {
         <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
         <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
 
-        <input type="submit" />
+        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Lähetä
+        </button>
       </form>
     </FormProvider>
   );

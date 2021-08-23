@@ -15,7 +15,7 @@ export const Booking = (props: any) => {
 
   return (
     <Provider store={store}>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 gap-4">
         <BookingCalendar />
         <BookingDayView />
         <BookingForm appointments={appointments} />
