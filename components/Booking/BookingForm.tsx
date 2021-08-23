@@ -9,6 +9,20 @@ const BookingForm = inject('store')(observer((props: any) => {
   const onSubmit = (data: any) => {
     console.log('submit date', store.selectedDate, store.selectedTime)
     console.log('submit user', data)
+    const req = {
+      user: data,
+      appointment: {
+        date: store.selectedDate,
+        time: store.selectedTime
+      }
+    }
+    fetch('api/createAppointment', {
+      method: 'POST',
+      body: JSON.stringify(req),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
   };
 
   // console.log(watch()); // watch input value by passing the name of it
@@ -17,9 +31,9 @@ const BookingForm = inject('store')(observer((props: any) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Etunimi" defaultValue="" {...register("firstname")} />
+      <input type="text" placeholder="Etunimi" defaultValue="" {...register("firstName")} />
 
-      <input placeholder="Sukunimi" {...register("surname", { required: true })} />
+      <input placeholder="Sukunimi" {...register("surName", { required: true })} />
       {errors.exampleRequired && <span>This field is required</span>}
 
       <input type="submit" />

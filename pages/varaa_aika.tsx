@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import BookingForm from '../components/Booking/BookingForm';
+import { supabase } from '../supabaseClient';
 
 import { PrismaClient } from "@prisma/client";
 import { Booking } from '../components/Booking';
@@ -22,11 +23,14 @@ export async function getStaticProps() {
 
   // const prisma = new PrismaClient({ log: ['query', 'info', 'warn'] });
   // const appointments = await prisma.appointment.findMany();
-  const appointments: any = []
+  // const appointments: any = []
+  const { data, error } = await supabase
+    .from('appointments')
+    .select()
 
   return {
     props: {
-      appointments: appointments.map((a: any) => {
+      appointments: data?.map((a: any) => {
         return {
           ...a,
           startDate: JSON.stringify(a.startDate),
