@@ -26,7 +26,6 @@ const BookingDayView = inject('store')(observer((props: any) => {
     return classes
   }
 
-
   return (
     <div>
       {possibleTimes.map((t, i: number) => (
@@ -37,7 +36,6 @@ const BookingDayView = inject('store')(observer((props: any) => {
           {t.from} - {t.to}
         </div>
       ))}
-      {JSON.stringify(store.selectedDate)}
     </div>
   )
 }))

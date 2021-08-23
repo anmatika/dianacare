@@ -6,10 +6,8 @@ import Field from "./Field";
 const BookingForm = inject('store')(observer((props: any) => {
   const { appointments, store } = props
 
-  // const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const methods = useForm()
   const { handleSubmit } = methods;
-
 
   const onSubmit = (data: any) => {
     console.log('submit date', store.selectedDate, store.selectedTime)
@@ -32,7 +30,7 @@ const BookingForm = inject('store')(observer((props: any) => {
 
   // console.log(watch()); // watch input value by passing the name of it
 
-  if (store.selectedDate == null) return <div />
+  if (store.selectedDate == null || store.selectedTime == null) return <div />
 
   return (
     <FormProvider {...methods}>
