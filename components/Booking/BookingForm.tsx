@@ -1,11 +1,16 @@
 import React from "react";
 import { observer, inject } from 'mobx-react'
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
+import Field from "./Field";
 
 const BookingForm = inject('store')(observer((props: any) => {
   const { appointments, store } = props
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  // const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const methods = useForm()
+  const { handleSubmit } = methods;
+
+
   const onSubmit = (data: any) => {
     console.log('submit date', store.selectedDate, store.selectedTime)
     console.log('submit user', data)
@@ -30,14 +35,15 @@ const BookingForm = inject('store')(observer((props: any) => {
   if (store.selectedDate == null) return <div />
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Etunimi" defaultValue="" {...register("firstName")} />
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
+        <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
+        <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
 
-      <input placeholder="Sukunimi" {...register("surName", { required: true })} />
-      {errors.exampleRequired && <span>This field is required</span>}
-
-      <input type="submit" />
-    </form>
+        <input type="submit" />
+      </form>
+    </FormProvider>
   );
 }))
 

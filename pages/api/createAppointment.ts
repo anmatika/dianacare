@@ -11,7 +11,6 @@ export default async (req: any, res: any) => {
     const createUserRes = await createUser(body.user)
     const createAppointmentRes = await createAppointment(body.appointment, createUserRes.body[0].id)
 
-
     res.status(200).json({ ...createUserRes, ...createAppointmentRes });
   } catch (err) {
     console.log(err);
@@ -22,9 +21,17 @@ export default async (req: any, res: any) => {
 async function createUser(user: any) {
   const res = await supabase
     .from('users')
-    .insert([
-      { firstName: user.firstName }
-    ])
+    .upsert({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      address: user.address,
+      postalCode: user.postalCode,
+      city: user.city,
+      phoneNumber: user.phoneNumber,
+      email: user.email
+    }, {
+      onConflict: 'email'
+    })
 
   return res
 }
