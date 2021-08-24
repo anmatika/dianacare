@@ -1,4 +1,5 @@
 import { Provider } from "mobx-react"
+import makeInspectable from 'mobx-devtools-mst';
 import BookingCalendar from "./BookingCalendar"
 import BookingDayView from "./BookingDayView"
 import BookingForm from "./BookingForm"
@@ -9,15 +10,16 @@ export const Booking = (props: any) => {
 
   const store = Store.create({
     selectedDate: null,
-    selectedTime: null
+    selectedTime: null,
+    appointments
   })
 
   return (
-    <Provider store={store}>
+    <Provider store={makeInspectable(store)}>
       <div className="grid grid-cols-2 gap-4">
         <BookingCalendar />
         <BookingDayView />
-        <BookingForm appointments={appointments} />
+        <BookingForm />
       </div>
     </Provider>
   )

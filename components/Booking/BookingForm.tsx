@@ -4,7 +4,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import Field from "./Field";
 
 const BookingForm = inject('store')(observer((props: any) => {
-  const { appointments, store } = props
+  const { store } = props
 
   const methods = useForm()
   const { handleSubmit } = methods;

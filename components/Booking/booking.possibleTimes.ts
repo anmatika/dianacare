@@ -8,6 +8,10 @@ const times = [
     to: 10
   },
   {
+    from: 10,
+    to: 11
+  },
+  {
     from: 11,
     to: 12
   },

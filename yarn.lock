@@ -2806,6 +2806,10 @@ minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
 
+mobx-devtools-mst@^0.9.30:
+  version "0.9.30"
+  resolved "https://registry.yarnpkg.com/mobx-devtools-mst/-/mobx-devtools-mst-0.9.30.tgz#0d1cad8b3d97e1f3f94bb9afb701cd9c8b5b164d"
+
 mobx-react-lite@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-3.2.0.tgz#331d7365a6b053378dfe9c087315b4e41c5df69f"

@@ -1,0 +1,9 @@
+.react-calendar__tile.has-appointments {
+  background: orange
+}
+.react-calendar__tile.no-appointments {
+  background: lightgreen
+}
+.react-calendar__tile.react-calendar__month-view__days__day--weekend {
+  background: gray
+}

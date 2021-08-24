@@ -1,9 +1,18 @@
 import { types } from "mobx-state-tree";
 
+const Appointment = types.model({
+  id: types.number,
+  startDate: types.string,
+  endDate: types.string,
+  userId: types.number
+})
+
+
 const Store = types
   .model("Store", {
     selectedDate: types.maybeNull(types.Date),
-    selectedTime: types.maybeNull(types.string)
+    selectedTime: types.maybeNull(types.string),
+    appointments: types.array(Appointment)
   })
   .actions(self => {
     return {

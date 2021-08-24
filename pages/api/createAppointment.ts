@@ -1,8 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import { supabase } from "../../supabaseClient";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 export default async (req: any, res: any) => {
   const body = req.body;
