@@ -10,17 +10,13 @@
     "cypress": "node_modules/.bin/cypress open --config-file cypress.local.json",
     "cypress:headless": "node_modules/.bin/cypress run --config-file cypress.local.json",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
-    "db:generate": "npx prisma generate",
-    "db:push": "npx prisma db push",
-    "db:migrate": "npx prisma migrate dev"
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.3",
-    "@prisma/client": "^2.29.1",
     "@prismicio/client": "^5.1.0",
     "@react-google-maps/api": "^2.2.0",
     "@supabase/supabase-js": "^1.21.3",

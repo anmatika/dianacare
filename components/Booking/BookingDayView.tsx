@@ -34,10 +34,10 @@ const BookingDayView = inject('store')(observer((props: any) => {
   }
 
   function isBookedTime(from: number, to: number) {
-    const isBooked = appointments.some((a: Store.Appointment) => {
-      const d = new Date(JSON.parse(a.startDate))
-      if (d.getDate() === selectedDate.getDate()) {
-        return d.getHours() === from
+    const isBooked = appointments.some((appointment: Store.Appointment) => {
+      const appointmentStartDate = new Date(JSON.parse(appointment.startDate))
+      if (appointmentStartDate.getDate() === selectedDate.getDate()) {
+        return appointment.startTime === from.toString()
       }
     })
 

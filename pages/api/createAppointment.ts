@@ -1,8 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-// import { PrismaClient } from "@prisma/client";
 import { supabase } from "../../supabaseClient";
-
-// const prisma = new PrismaClient();
+import { Rest } from "../../types/Rest";
 
 export default async (req: any, res: any) => {
   const body = req.body;
@@ -18,16 +16,17 @@ export default async (req: any, res: any) => {
   }
 };
 
-async function createUser(user: any) {
+async function createUser(user: Rest.User) {
+
   const res = await supabase
     .from('users')
     .upsert({
-      firstName: user.firstName,
-      lastName: user.lastName,
-      address: user.address,
-      postalCode: user.postalCode,
-      city: user.city,
-      phoneNumber: user.phoneNumber,
+      firstname: user.firstName,
+      lastname: user.lastName,
+      // address: user.address,
+      // postalCode: user.postalCode,
+      // city: user.city,
+      // phoneNumber: user.phoneNumber,
       email: user.email
     }, {
       onConflict: 'email'
@@ -36,18 +35,21 @@ async function createUser(user: any) {
   return res
 }
 
-async function createAppointment(appointment: any, userId: string) {
-  const timeStart = appointment.time.split('-')[0]
-  const timeEnd = appointment.time.split('-')[1]
-  const date = new Date(appointment.date)
+async function createAppointment(appointment: Rest.Appointment, userId: number) {
+  const { date, time } = appointment
+
+  const timeStart = time.split('-')[0]
+  const timeEnd = time.split('-')[1]
 
   const res = await supabase
     .from('appointments')
     .insert([
       {
-        startDate: new Date(date.getFullYear(), date.getMonth(), date.getDate(), timeStart, 0),
-        endDate: new Date(date.getFullYear(), date.getMonth(), date.getDate(), timeEnd, 0),
-        userId
+        startdate: new Date(Date.UTC(date.year, date.month, date.date)),
+        enddate: new Date(Date.UTC(date.year, date.month, date.date)),
+        starttime: timeStart,
+        endtime: timeEnd,
+        userid: userId
       }
     ])
 

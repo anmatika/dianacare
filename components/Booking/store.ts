@@ -3,7 +3,9 @@ import { types } from "mobx-state-tree";
 const Appointment = types.model({
   id: types.number,
   startDate: types.string,
+  startTime: types.string,
   endDate: types.string,
+  endTime: types.string,
   userId: types.number
 })
 

@@ -4,6 +4,8 @@ export namespace Store {
     id: number,
     startDate: string,
     endDate: string,
+    startTime: string,
+    endTime: string,
     userId: number
   }
 }

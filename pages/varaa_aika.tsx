@@ -3,7 +3,6 @@ import 'react-calendar/dist/Calendar.css';
 import BookingForm from '../components/Booking/BookingForm';
 import { supabase } from '../supabaseClient';
 
-import { PrismaClient } from "@prisma/client";
 import { Booking } from '../components/Booking';
 
 export default function CalendarPage(props: any) {
@@ -21,20 +20,24 @@ export default function CalendarPage(props: any) {
 }
 export async function getStaticProps() {
 
-  // const prisma = new PrismaClient({ log: ['query', 'info', 'warn'] });
-  // const appointments = await prisma.appointment.findMany();
-  // const appointments: any = []
   const { data, error } = await supabase
     .from('appointments')
     .select()
+
+  if (!data) return {
+    props: {}
+  }
 
   return {
     props: {
       appointments: data?.map((a: any) => {
         return {
-          ...a,
-          startDate: JSON.stringify(a.startDate),
-          endDate: JSON.stringify(a.endDate)
+          id: a.id,
+          userId: a.userid,
+          startDate: JSON.stringify(a.startdate),
+          startTime: a.starttime,
+          endDate: JSON.stringify(a.enddate),
+          endTime: a.endtime,
         }
       })
     },

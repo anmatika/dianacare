@@ -15,7 +15,11 @@ const BookingForm = inject('store')(observer((props: any) => {
     const req = {
       user: data,
       appointment: {
-        date: store.selectedDate,
+        date: {
+          year: store.selectedDate.getFullYear(),
+          month: store.selectedDate.getMonth(),
+          date: store.selectedDate.getDate()
+        },
         time: store.selectedTime
       }
     }
@@ -38,6 +42,10 @@ const BookingForm = inject('store')(observer((props: any) => {
         <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
         <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
         <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
+        <Field fieldName="phoneNumber" fieldLabel="Puhelin" />
+        <Field fieldName="address" fieldLabel="Osoite" />
+        <Field fieldName="city" fieldLabel="Kaupunki" />
+        <Field fieldName="postalCode" fieldLabel="Postinumero" />
 
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Lähetä
