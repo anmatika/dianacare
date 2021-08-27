@@ -14,7 +14,9 @@ const Store = types
   .model("Store", {
     selectedDate: types.maybeNull(types.Date),
     selectedTime: types.maybeNull(types.string),
-    appointments: types.array(Appointment)
+    appointments: types.array(Appointment),
+    modalIsOpen: types.boolean,
+    bookingConfirmed: types.boolean
   })
   .actions(self => {
     return {
@@ -23,6 +25,12 @@ const Store = types
       },
       selectTime(time: string) {
         self.selectedTime = time
+      },
+      setModalIsOpen(isOpen: boolean) {
+        self.modalIsOpen = isOpen
+      },
+      setBookingConfirmed(isConfirmed: boolean) {
+        self.bookingConfirmed = isConfirmed
       }
     };
   });

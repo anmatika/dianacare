@@ -2,6 +2,8 @@ import React from "react";
 import { observer, inject } from 'mobx-react'
 import { FormProvider, useForm } from "react-hook-form";
 import Field from "./Field";
+import ConfirmBookingModal from "./ConfirmBookingModal";
+import router from 'next/router'
 
 const BookingForm = inject('store')(observer((props: any) => {
   const { store } = props
@@ -9,7 +11,7 @@ const BookingForm = inject('store')(observer((props: any) => {
   const methods = useForm()
   const { handleSubmit } = methods;
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     console.log('submit date', store.selectedDate, store.selectedTime)
     console.log('submit user', data)
     const req = {
@@ -23,13 +25,18 @@ const BookingForm = inject('store')(observer((props: any) => {
         time: store.selectedTime
       }
     }
-    fetch('api/createAppointment', {
+    const res = await fetch('api/createAppointment', {
       method: 'POST',
       body: JSON.stringify(req),
       headers: {
         'Content-Type': 'application/json'
       },
     })
+
+    if (res.status === 200) {
+      router.push(`/varausvahvistus`)
+    }
+
   };
 
   // console.log(watch()); // watch input value by passing the name of it
@@ -38,7 +45,7 @@ const BookingForm = inject('store')(observer((props: any) => {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
         <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
         <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
         <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
@@ -47,9 +54,13 @@ const BookingForm = inject('store')(observer((props: any) => {
         <Field fieldName="city" fieldLabel="Kaupunki" />
         <Field fieldName="postalCode" fieldLabel="Postinumero" />
 
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Lähetä
+        <button
+          type="button"
+          onClick={() => store.setModalIsOpen(true)}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Siirry vahvistamaan varaus
         </button>
+        <ConfirmBookingModal />
       </form>
     </FormProvider>
   );

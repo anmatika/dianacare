@@ -11,7 +11,9 @@ export const Booking = (props: any) => {
   const store = Store.create({
     selectedDate: null,
     selectedTime: null,
-    appointments
+    appointments,
+    modalIsOpen: false,
+    bookingConfirmed: false
   })
 
   return (
