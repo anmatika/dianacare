@@ -16,7 +16,7 @@ const Store = types
     selectedTime: types.maybeNull(types.string),
     appointments: types.array(Appointment),
     modalIsOpen: types.boolean,
-    bookingConfirmed: types.boolean
+    isLoading: types.boolean
   })
   .actions(self => {
     return {
@@ -29,8 +29,8 @@ const Store = types
       setModalIsOpen(isOpen: boolean) {
         self.modalIsOpen = isOpen
       },
-      setBookingConfirmed(isConfirmed: boolean) {
-        self.bookingConfirmed = isConfirmed
+      setLoading(isLoading: boolean) {
+        self.isLoading = isLoading
       }
     };
   });

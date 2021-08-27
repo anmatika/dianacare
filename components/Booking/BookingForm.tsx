@@ -4,6 +4,8 @@ import { FormProvider, useForm } from "react-hook-form";
 import Field from "./Field";
 import ConfirmBookingModal from "./ConfirmBookingModal";
 import router from 'next/router'
+import Loader from "react-loader-spinner";
+import NProgress from 'nprogress';
 
 const BookingForm = inject('store')(observer((props: any) => {
   const { store } = props
@@ -12,8 +14,14 @@ const BookingForm = inject('store')(observer((props: any) => {
   const { handleSubmit } = methods;
 
   const onSubmit = async (data: any) => {
+    NProgress.start()
     console.log('submit date', store.selectedDate, store.selectedTime)
     console.log('submit user', data)
+
+    store.setModalIsOpen(false)
+    store.setLoading(true)
+
+
     const req = {
       user: data,
       appointment: {
@@ -42,9 +50,19 @@ const BookingForm = inject('store')(observer((props: any) => {
   // console.log(watch()); // watch input value by passing the name of it
 
   if (store.selectedDate == null || store.selectedTime == null) return <div />
+  if (store.isLoading) {
+
+    return <Loader type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      visible={store.isLoading}
+    />
+  }
 
   return (
     <FormProvider {...methods}>
+
       <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
         <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
         <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
