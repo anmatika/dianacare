@@ -63,12 +63,4 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
 }))
 
 export default ConfirmBookingModal
-export const getServerSideProps = async ({ req, res }: any) => {
-  if (res) {
-    console.log('res', res)
-    res.writeHead(302, { // or 301
-      Location: "localized/url/product/categories",
-    });
-    res.end();
-  }
-}
+
