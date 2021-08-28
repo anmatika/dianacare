@@ -8,4 +8,8 @@ export namespace Store {
     endTime: string,
     userId: number
   }
+  export type Loading = {
+    isLoading: boolean,
+    text: string
+  }
 }

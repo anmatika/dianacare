@@ -42,8 +42,6 @@ const BookingDayView = inject('store')(observer((props: any) => {
     })
 
     return isBooked;
-
-
   }
 
   return (

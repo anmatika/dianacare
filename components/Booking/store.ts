@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree";
+import { Store } from "../../types/Store";
 
 const Appointment = types.model({
   id: types.number,
@@ -9,14 +10,19 @@ const Appointment = types.model({
   userId: types.number
 })
 
+const Loading = types.model("Loading", {
+  isLoading: types.boolean,
+  text: types.string
+})
 
-const Store = types
+
+const MobxStore = types
   .model("Store", {
     selectedDate: types.maybeNull(types.Date),
     selectedTime: types.maybeNull(types.string),
     appointments: types.array(Appointment),
     modalIsOpen: types.boolean,
-    isLoading: types.boolean
+    loading: types.maybeNull(types.frozen(Loading))
   })
   .actions(self => {
     return {
@@ -29,10 +35,10 @@ const Store = types
       setModalIsOpen(isOpen: boolean) {
         self.modalIsOpen = isOpen
       },
-      setLoading(isLoading: boolean) {
-        self.isLoading = isLoading
+      setLoading(loading: Store.Loading) {
+        self.loading = loading
       }
     };
   });
 
-export default Store;
+export default MobxStore;

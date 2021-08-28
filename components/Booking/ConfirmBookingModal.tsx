@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 import { observer, inject } from 'mobx-react'
 import { useFormContext } from 'react-hook-form';
-import Loader from "react-loader-spinner";
 
 const customStyles = {
   content: {
@@ -33,12 +32,6 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
     store.setModalIsOpen(false);
   }
 
-  // if (store.isLoading) return <Loader type="Puff"
-  //   color="#00BFFF"
-  //   height={100}
-  //   width={100}
-  //   timeout={3000} />
-
   return (
     <div>
 
@@ -56,6 +49,7 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
         <div>
           Sähköposti: {email}
         </div>
+        <div> Aika: {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </div>
 
         <input />
         <button

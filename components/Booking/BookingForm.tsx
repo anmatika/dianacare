@@ -19,7 +19,10 @@ const BookingForm = inject('store')(observer((props: any) => {
     console.log('submit user', data)
 
     store.setModalIsOpen(false)
-    store.setLoading(true)
+    store.setLoading({
+      isLoading: true,
+      text: 'Varataan aikaa...'
+    })
 
 
     const req = {
@@ -42,7 +45,7 @@ const BookingForm = inject('store')(observer((props: any) => {
     })
 
     if (res.status === 200) {
-      router.push(`/varausvahvistus`)
+      router.push({ pathname: '/varausvahvistus', query: { date: store.selectedDate.getTime(), time: store.selectedTime } });
     }
 
   };
@@ -50,15 +53,6 @@ const BookingForm = inject('store')(observer((props: any) => {
   // console.log(watch()); // watch input value by passing the name of it
 
   if (store.selectedDate == null || store.selectedTime == null) return <div />
-  if (store.isLoading) {
-
-    return <Loader type="Puff"
-      color="#00BFFF"
-      height={100}
-      width={100}
-      visible={store.isLoading}
-    />
-  }
 
   return (
     <FormProvider {...methods}>
