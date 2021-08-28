@@ -1,11 +1,13 @@
 .react-calendar__tile.has-appointments {
-  background: #fdf1f1;
+  background: #e0f8e8;
 }
 .react-calendar__tile.no-appointments {
   background: #e2fde2;
 }
 .react-calendar__tile.fully-booked {
-  background: gray;
+  /* background: gray; */
+  color: gray;
+  text-decoration: line-through;
   cursor: not-allowed;
 }
 .react-calendar__tile.react-calendar__month-view__days__day--weekend {
@@ -21,10 +23,10 @@
 .react-calendar__tile:enabled:focus {
   background-color: transparent;
   box-shadow:inset 0px 0px 0px 2px green;
-  border-radius: 4px 4px 4px;
 }
 
 .react-calendar__tile--active {
-  color: black
+    color: green;
+    box-shadow:inset 0px 0px 0px 2px green;
 
 }
