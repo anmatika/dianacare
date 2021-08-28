@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'react-calendar/dist/Calendar.css';
 import BookingForm from '../components/Booking/BookingForm';
 import { supabase } from '../supabaseClient';
 

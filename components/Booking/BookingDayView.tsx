@@ -1,5 +1,5 @@
 import { observer, inject } from 'mobx-react'
-import possibleTimes from './booking.possibleTimes'
+import possibleTimes from '../../utils/booking.possibleTimes'
 import classnames from 'classnames'
 import { Store } from '../../types/Store';
 

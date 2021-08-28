@@ -2,7 +2,8 @@ import { observer, inject } from 'mobx-react'
 import Calendar, { CalendarTileProperties } from 'react-calendar';
 import { Store } from '../../types/Store';
 import classNames from 'classnames';
-import { isDatesSame } from '../../utils/date';
+import { isDatesSame, isWeekend } from '../../utils/date';
+import GetBookingTimesLeftInDate from '../../utils/booking';
 
 const BookingCalendar = inject('store')(observer((props: any) => {
   const { store } = props
@@ -11,15 +12,22 @@ const BookingCalendar = inject('store')(observer((props: any) => {
   console.log('store.appointments', store.appointments)
 
   function getTileClassName(p: CalendarTileProperties): string {
-
     const hasAppointments = store.appointments.some((a: Store.Appointment) =>
-      isDatesSame(new Date(JSON.parse(a.startDate)), p.date))
+      isDatesSame(a.startDate, p.date))
+
+    const dateFullyBooked = GetBookingTimesLeftInDate(store.appointments, p.date).length === 0
+    console.log('dateFullyBooked', dateFullyBooked, p.date.getDate())
 
     return classNames({
       'has-appointments': hasAppointments,
-      'no-appointments': !hasAppointments
+      'no-appointments': !hasAppointments,
+      'fully-booked': dateFullyBooked
     })
+  }
 
+  function setDisabledTiles({ date }: any): boolean {
+    const dateFullyBooked = GetBookingTimesLeftInDate(store.appointments, date).length === 0
+    return isWeekend(date) || dateFullyBooked
   }
 
   return (
@@ -30,6 +38,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
         }}
         locale="fi-FI"
         tileClassName={getTileClassName}
+        tileDisabled={setDisabledTiles}
       />
     </div>
   )

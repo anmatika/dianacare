@@ -1,11 +1,14 @@
 
 import 'tailwindcss/tailwind.css'
-import '../styles/scrollbar.css'
-import '../styles/footer.css'
-import '../styles/calendar.css'
+import 'react-calendar/dist/Calendar.css';
 import "@fortawesome/fontawesome-free/css/all.css"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import 'nprogress/nprogress.css';
+
+import '../styles/scrollbar.css'
+import '../styles/footer.css'
+import '../styles/calendar.css'
+
 import Router from 'next/router';
 
 import type { AppProps } from 'next/app'

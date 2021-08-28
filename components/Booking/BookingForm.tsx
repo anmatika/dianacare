@@ -4,7 +4,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import Field from "./Field";
 import ConfirmBookingModal from "./ConfirmBookingModal";
 import router from 'next/router'
-import Loader from "react-loader-spinner";
 import NProgress from 'nprogress';
 
 const BookingForm = inject('store')(observer((props: any) => {
