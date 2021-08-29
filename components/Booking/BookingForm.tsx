@@ -5,6 +5,9 @@ import Field from "./Field";
 import ConfirmBookingModal from "./ConfirmBookingModal";
 import router from 'next/router'
 import NProgress from 'nprogress';
+import { Booking } from "../../types/Booking";
+
+import { ArrowLeftIcon } from '@heroicons/react/outline';
 
 const BookingForm = inject('store')(observer((props: any) => {
   const { store } = props
@@ -55,7 +58,9 @@ const BookingForm = inject('store')(observer((props: any) => {
 
   return (
     <div>
+
       <h2>Yhteystietosi</h2>
+      <h2> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </h2>
       <FormProvider {...methods}>
         <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
           <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
@@ -74,6 +79,9 @@ const BookingForm = inject('store')(observer((props: any) => {
           </button>
           <ConfirmBookingModal />
         </form>
+        <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)}>
+          <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
+        </button>
       </FormProvider>
     </div>
 

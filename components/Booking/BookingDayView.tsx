@@ -3,6 +3,7 @@ import possibleTimes from '../../utils/booking.possibleTimes'
 import classnames from 'classnames'
 import { Store } from '../../types/Store';
 import { Booking } from '../../types/Booking';
+import { ArrowLeftIcon } from '@heroicons/react/outline';
 
 const BookingDayView = inject('store')(observer((props: any) => {
   const { store } = props;
@@ -48,6 +49,7 @@ const BookingDayView = inject('store')(observer((props: any) => {
 
   return (
     <div>
+      <h2> {store.selectedDate.toLocaleDateString('fi-FI')} </h2>
 
       <h2>Valitse kellonaika</h2>
       {possibleTimes.map((t, i: number) => (
@@ -58,6 +60,9 @@ const BookingDayView = inject('store')(observer((props: any) => {
           {t.from} - {t.to}
         </div>
       ))}
+      <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_DATE)}>
+        <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
+      </button>
     </div>
   )
 }))
