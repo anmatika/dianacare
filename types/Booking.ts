@@ -3,4 +3,9 @@ export namespace Booking {
     from: number,
     to: number
   }
+  export enum BookingPhase {
+    SELECT_DATE = "SELECT_DATE",
+    SELECT_TIME = "SELECT_TIME",
+    FILL_CONTACT = "FILL_CONTACT"
+  }
 }

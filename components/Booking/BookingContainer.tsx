@@ -3,6 +3,7 @@ import BookingCalendar from "./BookingCalendar"
 import BookingDayView from "./BookingDayView"
 import BookingForm from "./BookingForm"
 import Loader from "react-loader-spinner";
+import { Booking } from '../../types/Booking';
 
 const BookingContainer = inject('store')(observer((props: any) => {
   const { store } = props;
@@ -22,11 +23,20 @@ const BookingContainer = inject('store')(observer((props: any) => {
     )
   }
 
+  function renderPhase() {
+    switch (store.bookingPhase) {
+      case Booking.BookingPhase.SELECT_DATE:
+        return <BookingCalendar />
+      case Booking.BookingPhase.SELECT_TIME:
+        return <BookingDayView />
+      case Booking.BookingPhase.FILL_CONTACT:
+        return <BookingForm />
+    }
+  }
+
   return (
-    <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-      <BookingCalendar />
-      <BookingDayView />
-      <BookingForm />
+    <div className="p-8 ">
+      {renderPhase()}
     </div>
   )
 }))

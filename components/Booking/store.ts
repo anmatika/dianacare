@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree";
+import { Booking } from "../../types/Booking";
 import { Store } from "../../types/Store";
 
 const Appointment = types.model({
@@ -22,7 +23,8 @@ const MobxStore = types
     selectedTime: types.maybeNull(types.string),
     appointments: types.array(Appointment),
     modalIsOpen: types.boolean,
-    loading: types.maybeNull(types.frozen(Loading))
+    loading: types.maybeNull(types.frozen(Loading)),
+    bookingPhase: types.enumeration<Booking.BookingPhase>(Object.values(Booking.BookingPhase))
   })
   .actions(self => {
     return {
@@ -37,8 +39,13 @@ const MobxStore = types
       },
       setLoading(loading: Store.Loading) {
         self.loading = loading
+      },
+      setBookingPhase(phase: Booking.BookingPhase) {
+        self.bookingPhase = phase
       }
     };
   });
+
+
 
 export default MobxStore;

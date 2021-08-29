@@ -4,6 +4,7 @@ import { Store } from '../../types/Store';
 import classNames from 'classnames';
 import { isDatesSame, isWeekend } from '../../utils/date';
 import GetBookingTimesLeftInDate from '../../utils/booking';
+import { Booking } from '../../types/Booking';
 
 const BookingCalendar = inject('store')(observer((props: any) => {
   const { store } = props
@@ -36,6 +37,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
       <Calendar
         onClickDay={(value: Date) => {
           store.selectDate(value)
+          store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)
         }}
         locale="fi-FI"
         tileClassName={getTileClassName}

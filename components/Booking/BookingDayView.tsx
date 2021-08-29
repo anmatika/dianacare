@@ -2,6 +2,7 @@ import { observer, inject } from 'mobx-react'
 import possibleTimes from '../../utils/booking.possibleTimes'
 import classnames from 'classnames'
 import { Store } from '../../types/Store';
+import { Booking } from '../../types/Booking';
 
 const BookingDayView = inject('store')(observer((props: any) => {
   const { store } = props;
@@ -10,6 +11,7 @@ const BookingDayView = inject('store')(observer((props: any) => {
   function bookTime(from: any, to: any) {
     console.log('booktime', from, to)
     store.selectTime(`${from}-${to}`)
+    store.setBookingPhase(Booking.BookingPhase.FILL_CONTACT)
   }
 
   if (store.selectedDate == null) return <div />

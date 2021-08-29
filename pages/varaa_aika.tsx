@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BookingForm from '../components/Booking/BookingForm';
 import { supabase } from '../supabaseClient';
 
-import { Booking } from '../components/Booking';
+import Booking from '../components/Booking';
 
 export default function CalendarPage(props: any) {
   console.log('varaa_aika props', props)
