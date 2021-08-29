@@ -54,26 +54,29 @@ const BookingForm = inject('store')(observer((props: any) => {
   if (store.selectedDate == null || store.selectedTime == null) return <div />
 
   return (
-    <FormProvider {...methods}>
+    <div>
+      <h2>Yhteystietosi</h2>
+      <FormProvider {...methods}>
+        <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
+          <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
+          <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
+          <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
+          <Field fieldName="phoneNumber" fieldLabel="Puhelin" />
+          <Field fieldName="address" fieldLabel="Osoite" />
+          <Field fieldName="city" fieldLabel="Kaupunki" />
+          <Field fieldName="postalCode" fieldLabel="Postinumero" />
 
-      <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
-        <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
-        <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
-        <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
-        <Field fieldName="phoneNumber" fieldLabel="Puhelin" />
-        <Field fieldName="address" fieldLabel="Osoite" />
-        <Field fieldName="city" fieldLabel="Kaupunki" />
-        <Field fieldName="postalCode" fieldLabel="Postinumero" />
+          <button
+            type="button"
+            onClick={() => store.setModalIsOpen(true)}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Siirry vahvistamaan varaus
+          </button>
+          <ConfirmBookingModal />
+        </form>
+      </FormProvider>
+    </div>
 
-        <button
-          type="button"
-          onClick={() => store.setModalIsOpen(true)}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Siirry vahvistamaan varaus
-        </button>
-        <ConfirmBookingModal />
-      </form>
-    </FormProvider>
   );
 }))
 

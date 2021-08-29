@@ -32,6 +32,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
 
   return (
     <div>
+      <h2>Valitse päivä</h2>
       <Calendar
         onClickDay={(value: Date) => {
           store.selectDate(value)

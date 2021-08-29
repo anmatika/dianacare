@@ -1,5 +1,6 @@
 
 import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 import 'react-calendar/dist/Calendar.css';
 import "@fortawesome/fontawesome-free/css/all.css"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";

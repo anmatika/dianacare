@@ -46,6 +46,8 @@ const BookingDayView = inject('store')(observer((props: any) => {
 
   return (
     <div>
+
+      <h2>Valitse kellonaika</h2>
       {possibleTimes.map((t, i: number) => (
         <div
           onClick={() => bookTime(t.from, t.to)}
