@@ -48,10 +48,13 @@ const BookingDayView = inject('store')(observer((props: any) => {
   }
 
   return (
-    <div>
+    <div className="mb-2 sm:w-3/4 lg:w-2/5">
+      <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_DATE)}>
+        <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
+      </button>
       <h2> {store.selectedDate.toLocaleDateString('fi-FI')} </h2>
 
-      <h2>Valitse kellonaika</h2>
+      <h2>Valitse tapaamisaika</h2>
       {possibleTimes.map((t, i: number) => (
         <div
           onClick={() => bookTime(t.from, t.to)}
@@ -60,9 +63,7 @@ const BookingDayView = inject('store')(observer((props: any) => {
           {t.from} - {t.to}
         </div>
       ))}
-      <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_DATE)}>
-        <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
-      </button>
+
     </div>
   )
 }))

@@ -10,7 +10,7 @@ export default function CalendarPage(props: any) {
 
   return (
     <div className="container">
-      <h1>Varaa aika</h1>
+      <h1>Ajanvaraus</h1>
       <Booking appointments={appointments} />
     </div>
   );
@@ -40,12 +40,4 @@ export async function getStaticProps() {
     },
   };
 }
-// export const getServerSideProps = async ({ req, res }: any) => {
-//   if (res) {
-//     console.log('res', res)
-//     res.writeHead(302, { // or 301
-//       Location: "localized/url/product/categories",
-//     });
-//     res.end();
-//   }
-// }
+

@@ -40,7 +40,7 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Confirm booking modal"
       >
         <div> Olette varaamassa seuraavaa aikaa </div>
         <div>
@@ -53,11 +53,19 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
 
         <input />
         <button
+          type="button"
+          onClick={() => closeModal()}
+          form="form-booking"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">
+          Peruuta
+        </button>
+        <button
           type="submit"
           form="form-booking"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
           Varaa aika
         </button>
+
       </Modal>
     </div>
   );

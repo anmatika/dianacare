@@ -7,6 +7,7 @@ const DefaultLayout = ({ children }: any) => {
   return <div className="m-0 flex flex-col min-h-screen">
     <Head>
       <title>sandihoiva</title>
+      <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
     </Head>
     <Navbar />
 

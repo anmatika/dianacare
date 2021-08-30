@@ -39,6 +39,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
           store.selectDate(value)
           store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)
         }}
+        value={store.selectedDate}
         locale="fi-FI"
         tileClassName={getTileClassName}
         tileDisabled={setDisabledTiles}

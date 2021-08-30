@@ -28,6 +28,9 @@ module.exports = {
       }
     },
     extend: {
+      fontFamily: {
+        sans: ['Open Sans'],
+      },
       typography: {
         'xs': {
           css: {
@@ -57,7 +60,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: { },
   },
   plugins: [
     require('@tailwindcss/typography'),

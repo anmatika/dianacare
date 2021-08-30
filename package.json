@@ -17,6 +17,8 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.3",
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.8.0",
     "@prismicio/client": "^5.1.0",
     "@react-google-maps/api": "^2.2.0",
     "@supabase/supabase-js": "^1.21.3",
@@ -40,7 +42,9 @@
     "react-modal": "^3.14.3",
     "react-tooltip": "^4.2.21",
     "swr": "^0.5.6",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^2.2.7",
+    "yup": "^0.32.9",
+    "yup-phone": "^1.2.19"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",

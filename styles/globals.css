@@ -10,3 +10,7 @@
     @apply text-xl;
   }
 }
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
