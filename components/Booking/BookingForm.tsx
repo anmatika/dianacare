@@ -79,9 +79,9 @@ const BookingForm = inject('store')(observer((props: any) => {
 
       <FormProvider {...methods}>
         <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
-          <Field fieldName="firstName" fieldLabel="Etunimi" required={true} />
-          <Field fieldName="lastName" fieldLabel="Sukunimi" required={true} />
-          <Field fieldName="email" fieldLabel="Sähköposti" required={true} />
+          <Field fieldName="firstName" fieldLabel="Etunimi" />
+          <Field fieldName="lastName" fieldLabel="Sukunimi" />
+          <Field fieldName="email" fieldLabel="Sähköposti" />
           <Field fieldName="phoneNumber" fieldLabel="Puhelin" />
 
           <button
