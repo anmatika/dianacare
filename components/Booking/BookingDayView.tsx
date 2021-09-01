@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import { Store } from '../../types/Store';
 import { Booking } from '../../types/Booking';
 import { ArrowLeftIcon } from '@heroicons/react/outline';
+import { isDatesSame } from '../../utils/date';
 
 const BookingDayView = inject('store')(observer((props: any) => {
   const { store } = props;
@@ -37,12 +38,13 @@ const BookingDayView = inject('store')(observer((props: any) => {
   }
 
   function isBookedTime(from: number, to: number) {
-    const isBooked = appointments.some((appointment: Store.Appointment) => {
-      const appointmentStartDate = new Date(JSON.parse(appointment.startDate))
-      if (appointmentStartDate.getDate() === selectedDate.getDate()) {
-        return appointment.startTime === from.toString()
-      }
+    const currentDateAppointments = appointments.filter((appointment: Store.Appointment) => {
+      return isDatesSame(appointment.startDate, selectedDate)
     })
+
+    const isBooked = currentDateAppointments.some((currentDateAppointment: Store.Appointment) => {
+      return currentDateAppointment.startTime === from.toString()
+    });
 
     return isBooked;
   }
@@ -52,9 +54,13 @@ const BookingDayView = inject('store')(observer((props: any) => {
       <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_DATE)}>
         <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
       </button>
-      <h2> {store.selectedDate.toLocaleDateString('fi-FI')} </h2>
+      <div className="px-4 py-3 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert">
+        <h2> {store.selectedDate.toLocaleDateString('fi-FI')} </h2>
+      </div>
 
-      <h2>Valitse tapaamisaika</h2>
+      <div className="mt-4">
+        <h2>Valitse tapaamisaika</h2>
+      </div>
       {possibleTimes.map((t, i: number) => (
         <div
           onClick={() => bookTime(t.from, t.to)}

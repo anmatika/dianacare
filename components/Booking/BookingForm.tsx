@@ -74,8 +74,12 @@ const BookingForm = inject('store')(observer((props: any) => {
       <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)}>
         <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
       </button>
-      <h2>Yhteystietosi</h2>
-      <h2> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </h2>
+      <div className="px-4 py-3 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert">
+        <h2> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </h2>
+      </div>
+      <div className="mt-4">
+        <h2>Yhteystietosi</h2>
+      </div>
 
       <FormProvider {...methods}>
         <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>

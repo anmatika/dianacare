@@ -42,14 +42,14 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
         style={customStyles}
         contentLabel="Confirm booking modal"
       >
-        <div> Olette varaamassa seuraavaa aikaa </div>
+        <div className="mb-8"><h2> Olette varaamassa seuraavaa aikaa</h2> </div>
         <div>
-          Nimi: {firstName} {lastName}
+          <b>Nimi:</b> {firstName} {lastName}
         </div>
         <div>
-          Sähköposti: {email}
+          <b> Sähköposti: </b>{email}
         </div>
-        <div> Aika: {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </div>
+        <div><b> Aika:</b> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </div>
 
         <input />
         <button

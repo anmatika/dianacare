@@ -9,10 +9,12 @@ export default function BookingConfirmed(props: any) {
       <div className="prose">
         <h1>Teille on varattu aika</h1>
         <ul>
-          <li>{new Date(Number(date)).toLocaleDateString('fi-FI')} klo {time} </li>
+          <div className="px-4 py-3 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert">
+            {new Date(Number(date)).toLocaleDateString('fi-FI')} klo {time}
+          </div>
         </ul>
         <div>
-          Tervetuloa!
+          <h2>Tervetuloa!</h2>
         </div>
 
       </div>

@@ -2,8 +2,8 @@ import { observer, inject } from 'mobx-react'
 import Calendar, { CalendarTileProperties } from 'react-calendar';
 import { Store } from '../../types/Store';
 import classNames from 'classnames';
-import { isDatesSame, isWeekend } from '../../utils/date';
-import GetBookingTimesLeftInDate from '../../utils/booking';
+import { addDays, isDatesSame, isWeekend, isYesterday } from '../../utils/date';
+import { isDateFullyBooked } from '../../utils/booking';
 import { Booking } from '../../types/Booking';
 
 const BookingCalendar = inject('store')(observer((props: any) => {
@@ -16,25 +16,28 @@ const BookingCalendar = inject('store')(observer((props: any) => {
     const hasAppointments = store.appointments.some((a: Store.Appointment) =>
       isDatesSame(a.startDate, p.date))
 
-    const dateFullyBooked = GetBookingTimesLeftInDate(store.appointments, p.date).length === 0
-    console.log('dateFullyBooked', dateFullyBooked, p.date.getDate())
-
     return classNames({
       'has-appointments': hasAppointments,
       'no-appointments': !hasAppointments,
-      'fully-booked': dateFullyBooked
+      'fully-booked': isDateFullyBooked(store.appointments, p.date),
+      'yesterday': isYesterday(p.date)
     })
   }
 
   function setDisabledTiles({ date }: any): boolean {
-    const dateFullyBooked = GetBookingTimesLeftInDate(store.appointments, date).length === 0
-    return isWeekend(date) || dateFullyBooked
+    return isWeekend(date) || isDateFullyBooked(store.appointments, date)
   }
 
   return (
     <div>
       <h2>Valitse päivä</h2>
       <Calendar
+        maxDate={addDays(new Date(), 365)}
+        minDate={new Date()}
+        minDetail="month"
+        maxDetail="month"
+        showNavigation={true}
+        showNeighboringMonth={false}
         onClickDay={(value: Date) => {
           store.selectDate(value)
           store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)
