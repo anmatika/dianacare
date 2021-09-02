@@ -7,6 +7,9 @@ export default async (req: any, res: any) => {
   console.log('api/createAppointment', body)
   try {
     const createUserRes = await createUser(body.user)
+    if (createUserRes.body == null) {
+      throw new Error("Got no response from create user")
+    }
     const createAppointmentRes = await createAppointment(body.appointment, createUserRes.body[0].id)
 
     res.status(200).json({ ...createUserRes, ...createAppointmentRes });
