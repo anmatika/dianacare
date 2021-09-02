@@ -1,22 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import BookingForm from '../components/Booking/BookingForm';
 import { supabase } from '../supabaseClient';
-
 import Booking from '../components/Booking';
 
 export default function CalendarPage(props: any) {
-  console.log('varaa_aika props', props)
   const { appointments } = props
 
   return (
     <div className="container">
-      <h1>Ajanvaraus</h1>
+      <div className="prose p-8">
+        <h1>Ajanvaraus</h1>
+      </div>
       <Booking appointments={appointments} />
     </div>
   );
 }
 export async function getStaticProps() {
-
   const { data, error } = await supabase
     .from('appointments')
     .select()

@@ -8,7 +8,7 @@ import { Booking } from '../../types/Booking';
 const BookingContainer = inject('store')(observer((props: any) => {
   const { store } = props;
 
-  if (store.loading) {
+  function renderLoader() {
     return (
       <div>
         <h1> {store.loading.text} </h1>
@@ -35,8 +35,9 @@ const BookingContainer = inject('store')(observer((props: any) => {
   }
 
   return (
-    <div className="p-8 ">
-      {renderPhase()}
+    <div className="p-8 pt-0">
+      {store.loading && renderLoader()}
+      {!store.loading && renderPhase()}
     </div>
   )
 }))

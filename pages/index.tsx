@@ -22,7 +22,7 @@ function Home(props: any) {
 export default Home
 
 export async function getStaticProps() {
-  const res = await client.getSingle('koti', {})
+  const res = await client.getSingle('koti', { })
 
   return {
     props: {

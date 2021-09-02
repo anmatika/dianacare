@@ -22,7 +22,7 @@ function About(props: any) {
 export default About;
 
 export async function getStaticProps() {
-  const res = await client.getSingle('tietoameista', {})
+  const res = await client.getSingle('tietoameista', { })
 
   return {
     props: {

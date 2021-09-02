@@ -5,6 +5,8 @@ import { Store } from '../../types/Store';
 import { Booking } from '../../types/Booking';
 import { ArrowLeftIcon } from '@heroicons/react/outline';
 import { isDatesSame } from '../../utils/date';
+import React from 'react';
+import { PhaseBackButton } from './PhaseBackButton';
 
 const BookingDayView = inject('store')(observer((props: any) => {
   const { store } = props;
@@ -50,15 +52,16 @@ const BookingDayView = inject('store')(observer((props: any) => {
   }
 
   return (
-    <div className="mb-2 sm:w-3/4 lg:w-2/5">
-      <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_DATE)}>
-        <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
-      </button>
+    <div className="mb-2 sm:w-3/4 lg:w-2/5 flex flex-col">
+      <div className="pb-4">
+        <PhaseBackButton onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_DATE)} />
+      </div>
+
       <div className="px-4 py-3 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert">
         <h2> {store.selectedDate.toLocaleDateString('fi-FI')} </h2>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 mb-4">
         <h2>Valitse tapaamisaika</h2>
       </div>
       {possibleTimes.map((t, i: number) => (

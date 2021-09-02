@@ -5,12 +5,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Field from "./Field";
 import ConfirmBookingModal from "./ConfirmBookingModal";
 import router from 'next/router'
-import NProgress from 'nprogress';
 import { Booking } from "../../types/Booking";
+import NProgress from 'nprogress';
 import * as yup from "yup";
 import "yup-phone";
 
-import { ArrowLeftIcon } from '@heroicons/react/outline';
+import { PhaseBackButton } from "./PhaseBackButton";
 
 const schema = yup.object().shape({
   firstName: yup.string().required('Tämä tieto on pakollinen.'),
@@ -70,23 +70,24 @@ const BookingForm = inject('store')(observer((props: any) => {
   if (store.selectedDate == null || store.selectedTime == null) return <div />
 
   return (
-    <div>
-      <button onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)}>
-        <ArrowLeftIcon className="h-5 w-5 text-blue-500" />
-      </button>
+    <div className="sm:w-3/4 lg:w-2/5 flex flex-col">
+      <div className="pb-4">
+        <PhaseBackButton onClick={() => store.setBookingPhase(Booking.BookingPhase.SELECT_TIME)} />
+      </div>
+
       <div className="px-4 py-3 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert">
         <h2> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </h2>
       </div>
-      <div className="mt-4">
-        <h2>Yhteystietosi</h2>
+      <div className="mt-4 mb-4">
+        <h2>Yhteystiedot</h2>
       </div>
 
       <FormProvider {...methods}>
         <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
-          <Field fieldName="firstName" fieldLabel="Etunimi" />
-          <Field fieldName="lastName" fieldLabel="Sukunimi" />
-          <Field fieldName="email" fieldLabel="Sähköposti" />
-          <Field fieldName="phoneNumber" fieldLabel="Puhelin" />
+          <Field fieldName="firstName" fieldLabel="Etunimi" required />
+          <Field fieldName="lastName" fieldLabel="Sukunimi" required />
+          <Field fieldName="email" fieldLabel="Sähköposti" required />
+          <Field fieldName="phoneNumber" fieldLabel="Puhelin" required />
 
           <button
             type="button"
@@ -96,7 +97,7 @@ const BookingForm = inject('store')(observer((props: any) => {
                 store.setModalIsOpen(true)
 
             }}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">
             Siirry vahvistamaan varaus
           </button>
           <ConfirmBookingModal />

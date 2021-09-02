@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 
 const customStyles = {
   content: {
-    top: '20%',
+    top: '30%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
@@ -13,7 +13,6 @@ const customStyles = {
   },
 };
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('body');
 
 const ConfirmBookingModal = inject('store')(observer((props: any) => {
@@ -23,48 +22,44 @@ const ConfirmBookingModal = inject('store')(observer((props: any) => {
 
   const { store } = props
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
-  }
-
   function closeModal() {
     store.setModalIsOpen(false);
   }
 
   return (
     <div>
-
       <Modal
         isOpen={store.modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Confirm booking modal"
       >
-        <div className="mb-8"><h2> Olette varaamassa seuraavaa aikaa</h2> </div>
-        <div>
-          <b>Nimi:</b> {firstName} {lastName}
+        <div><h2> Olette varaamassa seuraavaa aikaa </h2> </div>
+        <div className="p-8">
+          <div>
+            <b>Nimi:</b> {firstName} {lastName}
+          </div>
+          <div>
+            <b> Sähköposti: </b>{email}
+          </div>
+          <div><b> Aika:</b> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </div>
         </div>
-        <div>
-          <b> Sähköposti: </b>{email}
-        </div>
-        <div><b> Aika:</b> {store.selectedDate.toLocaleDateString('fi-FI')} klo {store.selectedTime} </div>
 
-        <input />
-        <button
-          type="button"
-          onClick={() => closeModal()}
-          form="form-booking"
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">
-          Peruuta
-        </button>
-        <button
-          type="submit"
-          form="form-booking"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-          Varaa aika
-        </button>
+        <span className="float-right">
+          <button
+            type="button"
+            onClick={() => closeModal()}
+            form="form-booking"
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">
+            Peruuta
+          </button>
+          <button
+            type="submit"
+            form="form-booking"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Varaa aika
+          </button>
+        </span>
 
       </Modal>
     </div>

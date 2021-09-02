@@ -38,7 +38,7 @@ export default function Contact(props: any) {
 
 
 export async function getStaticProps() {
-  const res = await client.getSingle('yhteystiedot', {})
+  const res = await client.getSingle('yhteystiedot', { })
 
   return {
     props: {
