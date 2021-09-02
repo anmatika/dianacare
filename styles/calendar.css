@@ -1,22 +1,46 @@
 .react-calendar {
   width: 100%;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #E5E7EB;
+}
+.react-calendar__navigation button[disabled] {
+  background: #F3F4F6;
+  cursor: default;
+
+  /* background: #93C5FD; */
+}
+button[disabled].react-calendar__navigation__prev-button,
+button[disabled].react-calendar__navigation__prev2-button,
+button[disabled].react-calendar__navigation__next-button,
+button[disabled].react-calendar__navigation__next2-button {
+  color: #E5E7EB
+}
+
+ .react-calendar__navigation button:enabled:focus {
+   background: transparent
+ }
+.react-calendar__navigation button:enabled:hover {
+  background: #EFF6FF;
+}
+
+.react-calendar__navigation__label  {
+  background: #93C5FD;
 }
 .react-calendar__tile.has-appointments {
-  background: #e0f8e8;
+  background: #6EE7B7;
 }
 .react-calendar__tile.no-appointments {
-  background: #e2fde2;
+  background: #D1FAE5;
 }
 .react-calendar__tile.fully-booked {
-  /* background: gray; */
-  color: gray;
+  color: #991B1B;
   text-decoration: line-through;
   cursor: not-allowed;
 }
 
 .react-calendar__tile.react-calendar__month-view__days__day--weekend,
  .react-calendar__tile.yesterday {
-  background: #80808036;
+  background: #F3F4F6;
   color: gray;
   cursor: not-allowed;
 }
@@ -26,12 +50,12 @@
 }
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-  background-color: transparent;
-  box-shadow:inset 0px 0px 0px 2px green;
+  background-color:#ECFDF5;
+  box-shadow:inset 0px 0px 0px 2px #059669;
 }
 
 .react-calendar__tile--active {
-    color: green;
-    box-shadow:inset 0px 0px 0px 2px green;
+    color: #059669;
+    box-shadow:inset 0px 0px 0px 2px #059669;
 
 }
