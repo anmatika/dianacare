@@ -29,9 +29,6 @@ const BookingForm = inject('store')(observer((props: any) => {
 
   const onSubmit = async (data: any) => {
     NProgress.start()
-    console.log('submit date', store.selectedDate, store.selectedTime)
-    console.log('submit user', data)
-    console.log('field errors', formState.errors)
 
     store.setModalIsOpen(false)
     store.setLoading({
@@ -65,7 +62,7 @@ const BookingForm = inject('store')(observer((props: any) => {
 
   };
 
-  console.log(methods.watch()); // watch input value by passing the name of it
+  // console.log(methods.watch()); // watch input value by passing the name of it
 
   if (store.selectedDate == null || store.selectedTime == null) return <div />
 
@@ -84,10 +81,10 @@ const BookingForm = inject('store')(observer((props: any) => {
 
       <FormProvider {...methods}>
         <form id="form-booking" onSubmit={handleSubmit(onSubmit)}>
-          <Field fieldName="firstName" fieldLabel="Etunimi" required />
-          <Field fieldName="lastName" fieldLabel="Sukunimi" required />
-          <Field fieldName="email" fieldLabel="Sähköposti" required />
-          <Field fieldName="phoneNumber" fieldLabel="Puhelin" required />
+          <Field type="text" fieldName="firstName" fieldLabel="Etunimi" required />
+          <Field type="text" fieldName="lastName" fieldLabel="Sukunimi" required />
+          <Field type="email" fieldName="email" fieldLabel="Sähköposti" required />
+          <Field type="text" fieldName="phoneNumber" fieldLabel="Puhelin" required />
 
           <button
             type="button"

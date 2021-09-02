@@ -13,7 +13,6 @@ const BookingDayView = inject('store')(observer((props: any) => {
   const { appointments, selectedDate, selectedTime } = store
 
   function bookTime(from: any, to: any) {
-    console.log('booktime', from, to)
     store.selectTime(`${from}-${to}`)
     store.setBookingPhase(Booking.BookingPhase.FILL_CONTACT)
   }

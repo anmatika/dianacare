@@ -8,9 +8,6 @@ import { Booking } from '../../types/Booking';
 
 const BookingCalendar = inject('store')(observer((props: any) => {
   const { store } = props
-  console.log('booking calendar props', props)
-  console.log('todolist', store.todoList)
-  console.log('store.appointments', store.appointments)
 
   function getTileClassName(p: CalendarTileProperties): string {
     const hasAppointments = store.appointments.some((a: Store.Appointment) =>

@@ -16,8 +16,6 @@ export function getBookingTimesLeftInDate(appointments: Store.Appointment[], cur
     return true
   })
 
-  console.log('bookingtimes left', currentDate, bookingTimesLeft)
-
   return bookingTimesLeft
 }
 
