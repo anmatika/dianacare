@@ -13,15 +13,12 @@
   text-decoration: line-through;
   cursor: not-allowed;
 }
-.react-calendar__tile.react-calendar__month-view__days__day--weekend {
+
+.react-calendar__tile.react-calendar__month-view__days__day--weekend,
+ .react-calendar__tile.yesterday {
   background: #80808036;
   color: gray;
   cursor: not-allowed;
-}
-
-.react-calendar__tile.yesterday {
-  display: none;
-
 }
 
 .react-calendar__month-view__weekdays__weekday abbr[title]  {
