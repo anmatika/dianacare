@@ -7,7 +7,7 @@ const navigation = [
   { name: 'Koti', href: '/', isVisible: true },
   { name: 'Tietoa meistä', href: '/tietoa_meista', current: false, isVisible: true },
   { name: 'Ota yhteyttä', href: '/yhteystiedot', current: false, isVisible: true },
-  { name: 'Varaa aika', href: '/varaa_aika', current: false, isVisible: process.env.NODE_ENV === 'development' },
+  { name: 'Varaa aika', href: '/varaa_aika', current: false, isVisible: true },
 ]
 
 const content = {
