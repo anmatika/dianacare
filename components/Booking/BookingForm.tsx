@@ -84,7 +84,7 @@ const BookingForm = inject('store')(observer((props: any) => {
           <Field type="text" fieldName="firstName" fieldLabel="Etunimi" required />
           <Field type="text" fieldName="lastName" fieldLabel="Sukunimi" required />
           <Field type="email" fieldName="email" fieldLabel="Sähköposti" required />
-          <Field type="text" fieldName="phoneNumber" fieldLabel="Puhelin" required />
+          <Field type="tel" fieldName="phoneNumber" fieldLabel="Puhelin" required />
 
           <button
             type="button"
