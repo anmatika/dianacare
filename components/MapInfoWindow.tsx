@@ -1,4 +1,10 @@
-export default function MapInfoWindow(props: any) {
+import { Cms } from "../types/Cms"
+
+export interface MapInfoWindowProps {
+  data: Cms.YhteystiedotData
+}
+
+export default function MapInfoWindow(props: MapInfoWindowProps) {
   const { phone, address, email } = props.data
 
   const mailtoText = `mailto: ${email}`

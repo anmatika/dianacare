@@ -1,8 +1,13 @@
 
 import { client } from "../prismic-configuration"
 import Map from "../components/Map";
+import { Cms } from "../types/Cms";
 
-export default function Contact(props: any) {
+export interface ContactProps {
+  data: Cms.YhteystiedotData
+}
+
+export default function Contact(props: ContactProps) {
   const { data } = props;
   const mailto = `mailto: ${data.email}`
 
@@ -38,7 +43,7 @@ export default function Contact(props: any) {
 
 
 export async function getStaticProps() {
-  const res = await client.getSingle('yhteystiedot', { })
+  const res = await client.getSingle('yhteystiedot', {})
 
   return {
     props: {

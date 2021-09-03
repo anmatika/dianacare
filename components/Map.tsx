@@ -2,9 +2,14 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { Marker } from '@react-google-maps/api';
 import { InfoWindow } from '@react-google-maps/api'
 import { useState } from "react";
+import { Cms } from '../types/Cms';
 import MapInfoWindow from './MapInfoWindow';
 
-export default function Map(props: any) {
+export interface MapProps {
+  data: Cms.YhteystiedotData
+}
+
+export default function Map(props: MapProps) {
   const { data } = props;
   const [isVisibleInfoWindow, setVisibleInfoWindow] = useState(false)
 

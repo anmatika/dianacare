@@ -1,10 +1,16 @@
 import { useRouter } from "next/router";
 import { client } from "../prismic-configuration"
 import Map from "../components/Map";
+import { Cms } from "../types/Cms";
 
-export default function BookingConfirmed(props: any) {
+export interface BookingConfirmedProps {
+  data: Cms.YhteystiedotData
+}
+
+export default function BookingConfirmed(props: BookingConfirmedProps) {
   const router = useRouter()
-  const { date, time, data } = router.query
+  const { data } = props
+  const { date, time } = router.query
 
   return (
     <div className="container">
@@ -25,7 +31,7 @@ export default function BookingConfirmed(props: any) {
 }
 
 export async function getStaticProps() {
-  const res = await client.getSingle('yhteystiedot', { })
+  const res = await client.getSingle('yhteystiedot', {})
 
   return {
     props: {
