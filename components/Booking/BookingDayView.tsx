@@ -1,16 +1,14 @@
 import { observer, inject } from 'mobx-react'
 import possibleTimes from '../../utils/booking.possibleTimes'
 import classnames from 'classnames'
-import { Store } from '../../types/Store';
 import { Booking } from '../../types/Booking';
-import { ArrowLeftIcon } from '@heroicons/react/outline';
-import { isDatesSame } from '../../utils/date';
 import React from 'react';
 import { PhaseBackButton } from './PhaseBackButton';
+import { isBookedTime } from '../../utils/booking';
 
 const BookingDayView = inject('store')(observer((props: any) => {
   const { store } = props;
-  const { appointments, selectedDate, selectedTime } = store
+  const { appointments, selectedDate } = store
 
   function bookTime(from: any, to: any) {
     store.selectTime(`${from}-${to}`)
@@ -19,9 +17,9 @@ const BookingDayView = inject('store')(observer((props: any) => {
 
   if (store.selectedDate == null) return <div />
 
-  function getClassNames(from: any, to: any) {
+  function getClassNames(from: number, to: any) {
     const isSelectedTime = store.selectedTime === `${from}-${to}`
-    const isBooked = isBookedTime(from, to)
+    const isBooked = isBookedTime(from, selectedDate, appointments)
 
     const classes = classnames({
       'border-2': true,
@@ -36,18 +34,6 @@ const BookingDayView = inject('store')(observer((props: any) => {
     })
 
     return classes
-  }
-
-  function isBookedTime(from: number, to: number) {
-    const currentDateAppointments = appointments.filter((appointment: Store.Appointment) => {
-      return isDatesSame(appointment.startDate, selectedDate)
-    })
-
-    const isBooked = currentDateAppointments.some((currentDateAppointment: Store.Appointment) => {
-      return currentDateAppointment.startTime === from.toString()
-    });
-
-    return isBooked;
   }
 
   return (

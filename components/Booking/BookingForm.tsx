@@ -11,6 +11,7 @@ import * as yup from "yup";
 import "yup-phone";
 
 import { PhaseBackButton } from "./PhaseBackButton";
+import { Client } from "../../utils/apiClient";
 
 const schema = yup.object().shape({
   firstName: yup.string().required('Tämä tieto on pakollinen.'),
@@ -36,30 +37,11 @@ const BookingForm = inject('store')(observer((props: any) => {
       text: 'Varataan aikaa...'
     })
 
-
-    const req = {
-      user: data,
-      appointment: {
-        date: {
-          year: store.selectedDate.getFullYear(),
-          month: store.selectedDate.getMonth(),
-          date: store.selectedDate.getDate()
-        },
-        time: store.selectedTime
-      }
-    }
-    const res = await fetch('api/createAppointment', {
-      method: 'POST',
-      body: JSON.stringify(req),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
+    const res = await Client(store).bookTime(data);
 
     if (res.status === 200) {
       router.push({ pathname: '/varausvahvistus', query: { date: store.selectedDate.getTime(), time: store.selectedTime } });
     }
-
   };
 
   // console.log(methods.watch()); // watch input value by passing the name of it

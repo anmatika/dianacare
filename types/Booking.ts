@@ -8,4 +8,9 @@ export namespace Booking {
     SELECT_TIME = "SELECT_TIME",
     FILL_CONTACT = "FILL_CONTACT"
   }
+
+  export type BookingData = {
+    user: string,
+    appointment: string
+  }
 }
