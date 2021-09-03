@@ -17,7 +17,7 @@ const BookingDayView = inject('store')(observer((props: any) => {
 
   if (store.selectedDate == null) return <div />
 
-  function getClassNames(from: number, to: any) {
+  function getClassNames(from: number, to: number) {
     const isSelectedTime = store.selectedTime === `${from}-${to}`
     const isBooked = isBookedTime(from, selectedDate, appointments)
 

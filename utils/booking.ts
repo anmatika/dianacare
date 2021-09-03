@@ -33,7 +33,7 @@ export function isDateFullyBooked(appointments: Store.Appointment[], currentDate
  * @param  {Date} selectedDate
  * @param  {Store.Appointment[]} appointments in store
  */
-export function isBookedTime(time: string, selectedDate: Date, appointments: Store.Appointment[]) {
+export function isBookedTime(time: number, selectedDate: Date, appointments: Store.Appointment[]) {
   const currentDateAppointments = appointments.filter((appointment: Store.Appointment) => {
     return areDatesSame(appointment.startDate, selectedDate)
   })
