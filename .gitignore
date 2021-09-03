@@ -39,3 +39,5 @@ cypress/videos
 
 # Supabase
 .supabase
+
+tsconfig.tsbuildinfo

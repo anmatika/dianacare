@@ -2,7 +2,7 @@ import { observer, inject } from 'mobx-react'
 import Calendar, { CalendarTileProperties } from 'react-calendar';
 import { Store } from '../../types/Store';
 import classNames from 'classnames';
-import { addDays, isDatesSame, isWeekend, isYesterday } from '../../utils/date';
+import { addDays, areDatesSame, isWeekend, isYesterday } from '../../utils/date';
 import { isDateFullyBooked } from '../../utils/booking';
 import { Booking } from '../../types/Booking';
 
@@ -11,7 +11,7 @@ const BookingCalendar = inject('store')(observer((props: any) => {
 
   function getTileClassName(p: CalendarTileProperties): string {
     const hasAppointments = store.appointments.some((a: Store.Appointment) =>
-      isDatesSame(a.startDate, p.date))
+      areDatesSame(a.startDate, p.date))
 
     return classNames({
       'has-appointments': hasAppointments,

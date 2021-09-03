@@ -1,4 +1,4 @@
-export function isDatesSame(dateString: string, date2: Date): boolean {
+export function areDatesSame(dateString: string, date2: Date): boolean {
   const date1 = new Date(JSON.parse(dateString))
   return date1.getFullYear() === date2.getFullYear() &&
     date1.getMonth() === date2.getMonth() &&
