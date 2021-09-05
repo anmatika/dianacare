@@ -6,4 +6,7 @@ module.exports = {
       sizeLimit: '1mb',
     },
   },
+  images: {
+    domains: ['dianacare.prismic.io'],
+  },
 }

@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './pages/**/*.tsx',
+    './components/**/*.tsx',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontSize: {
@@ -54,13 +57,13 @@ module.exports = {
         },
       },
       backgroundImage: theme => ({
-        'hero-home': "url('/images/hero-koti.png')",
+        'hero-home': "url('/images/hero-koti-512x342.png')",
         'hero-about': "url('/images/hero-tietoameista.jpg')",
       })
     },
   },
   variants: {
-    extend: { },
+    extend: {},
   },
   plugins: [
     require('@tailwindcss/typography'),
