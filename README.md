@@ -21,3 +21,15 @@ https://dianacare.prismic.io/
 Netflify - dianacare.netflify.app
 https://app.netlify.com/sites/dianacare/overview
 
+## Environment variables
+
+Create `.env`
+
+Insert the following keys
+```
+NEXT_PUBLIC_SUPABASE_URL=<YOUR_VALUE>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<YOUR_VALUE>
+PRISMIC_URL=<YOUR_VALUE>
+PRISMIC_TOKEN=<YOUR_VALUE>
+```
+
